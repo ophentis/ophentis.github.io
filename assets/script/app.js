@@ -1,6 +1,6 @@
 var app = angular.module('ophentis.github.io',[]);
 
-app.controller('MainController',function($scope) {
+app.controller('MainController',function($scope,$timeout) {
 	$scope.me = {
 		"my name": "Willy Tseng",
 		"speaks": ["English","Chinese"],
@@ -38,4 +38,8 @@ app.controller('MainController',function($scope) {
 	};
 
 	$scope.meJSONString = JSON.stringify($scope.me);
+
+	$timeout(function() {
+		$('.highlight').each(function(i, e) {hljs.highlightBlock(e)});
+	}, 1000);
 });
